@@ -1,179 +1,150 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>OSNS Academy - Supreme</title>
+    <title>OSNS Academy</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
 
-<style>
-body{
-    margin:0;
-    font-family:Arial, sans-serif;
-    background:#111;
-    color:white;
-    text-align:center;
-}
+        header {
+            background: black;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
 
-header{
-    background:black;
-    padding:20px;
-}
+        nav {
+            background: #222;
+            padding: 10px;
+            text-align: center;
+        }
 
-button{
-    padding:10px 20px;
-    border:none;
-    border-radius:5px;
-    cursor:pointer;
-    margin:10px;
-}
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+        }
 
-.primary{
-    background:#00ff88;
-    color:black;
-}
+        section {
+            padding: 40px;
+        }
 
-.card{
-    background:#1e1e1e;
-    padding:20px;
-    margin:20px auto;
-    width:80%;
-    border-radius:10px;
-}
+        .course {
+            background: white;
+            padding: 20px;
+            margin: 20px auto;
+            width: 80%;
+            border-radius: 10px;
+        }
 
-input{
-    padding:10px;
-    margin:10px;
-    border-radius:5px;
-    border:none;
-}
+        .chapter {
+            background: #eee;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
 
-.hidden{
-    display:none;
-}
-</style>
+        iframe {
+            margin-top: 10px;
+            width: 100%;
+            height: 315px;
+            border-radius: 8px;
+        }
+
+        footer {
+            background: black;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
 
 <header>
-    <h1>🚀 OSNS Academy</h1>
-    <p>Plateforme Premium de Formation</p>
+    <h1>OSNS Academy</h1>
+    <p>Plateforme de cours en ligne</p>
 </header>
 
-<!-- PAGE ACCUEIL -->
-<div id="home">
-    <h2>Bienvenue sur la plateforme ultime</h2>
-    <button class="primary" onclick="showLogin()">Se connecter</button>
-    <button onclick="showPayment()">Accès Premium</button>
-</div>
+<nav>
+    <a href="#">Accueil</a>
+    <a href="#">Cours</a>
+    <a href="#">Connexion</a>
+    <a href="#">Contact</a>
+</nav>
 
-<!-- LOGIN -->
-<div id="login" class="hidden">
-    <h2>Connexion</h2>
-    <input type="text" id="username" placeholder="Nom utilisateur"><br>
-    <input type="password" id="password" placeholder="Mot de passe"><br>
-    <button class="primary" onclick="login()">Connexion</button>
-</div>
+<section>
 
-<!-- DASHBOARD -->
-<div id="dashboard" class="hidden">
-    <h2>🎓 Tableau de bord</h2>
+    <h2>📚 Langage C</h2>
 
-    <div class="card">
-        <h3>📚 Cours HTML</h3>
-        <p>Apprends à créer des sites web</p>
-        <button onclick="showQuiz()">Faire le Quiz</button>
+    <div class="course">
+
+        <div class="chapter">
+            <h3>Chapitre 1 : Introduction au C</h3>
+            <p>Le langage C est un langage de programmation puissant créé pour développer des systèmes et logiciels.</p>
+            <iframe src="https://www.youtube.com/embed/KJgsSFOSQv0" allowfullscreen></iframe>
+        </div>
+
+        <div class="chapter">
+            <h3>Chapitre 2 : Variables et Types</h3>
+            <p>En C, on utilise des variables pour stocker des données : int, float, char...</p>
+            <iframe src="https://www.youtube.com/embed/8jLOx1hD3_o" allowfullscreen></iframe>
+        </div>
+
     </div>
 
-    <div class="card">
-        <h3>💻 Langage C</h3>
-        <p>Maîtrise la programmation système</p>
+    <h2>📚 Algorithme</h2>
+
+    <div class="course">
+
+        <div class="chapter">
+            <h3>Chapitre 1 : Notion d’algorithme</h3>
+            <p>Un algorithme est une suite d'instructions permettant de résoudre un problème.</p>
+            <iframe src="https://www.youtube.com/embed/8hly31xKli0" allowfullscreen></iframe>
+        </div>
+
+        <div class="chapter">
+            <h3>Chapitre 2 : Les conditions</h3>
+            <p>Les structures conditionnelles permettent de prendre des décisions (si, sinon).</p>
+            <iframe src="https://www.youtube.com/embed/f4KOjWS_KZs" allowfullscreen></iframe>
+        </div>
+
     </div>
 
-    <button onclick="logout()">Déconnexion</button>
-</div>
+    <h2>📚 Création de site Web</h2>
 
-<!-- QUIZ -->
-<div id="quiz" class="hidden">
-    <h2>📝 Quiz HTML</h2>
-    <p>Que signifie HTML ?</p>
-    <button onclick="answer(true)">Hyper Text Markup Language</button><br>
-    <button onclick="answer(false)">High Transfer Machine Language</button><br>
-    <button onclick="backDashboard()">Retour</button>
-</div>
+    <div class="course">
 
-<!-- PAYMENT -->
-<div id="payment" class="hidden">
-    <h2>💳 Paiement Premium</h2>
-    <p>Accès complet : 10€</p>
-    <button class="primary" onclick="fakePay()">Payer maintenant</button>
-    <br>
-    <button onclick="backHome()">Retour</button>
-</div>
+        <div class="chapter">
+            <h3>Chapitre 1 : HTML</h3>
+            <p>HTML permet de structurer une page web.</p>
+            <iframe src="https://www.youtube.com/embed/pQN-pnXPaVg" allowfullscreen></iframe>
+        </div>
 
-<script>
-function showLogin(){
-    hideAll();
-    document.getElementById("login").style.display="block";
-}
+        <div class="chapter">
+            <h3>Chapitre 2 : CSS</h3>
+            <p>CSS permet de styliser une page web.</p>
+            <iframe src="https://www.youtube.com/embed/1Rs2ND1ryYc" allowfullscreen></iframe>
+        </div>
 
-function showPayment(){
-    hideAll();
-    document.getElementById("payment").style.display="block";
-}
+        <div class="chapter">
+            <h3>Chapitre 3 : JavaScript</h3>
+            <p>JavaScript rend les sites interactifs.</p>
+            <iframe src="https://www.youtube.com/embed/W6NZfCO5SIk" allowfullscreen></iframe>
+        </div>
 
-function login(){
-    let user=document.getElementById("username").value;
-    let pass=document.getElementById("password").value;
+    </div>
 
-    if(user==="admin" && pass==="1234"){
-        hideAll();
-        document.getElementById("dashboard").style.display="block";
-    }else{
-        alert("Identifiants incorrects");
-    }
-}
+</section>
 
-function logout(){
-    hideAll();
-    document.getElementById("home").style.display="block";
-}
-
-function showQuiz(){
-    hideAll();
-    document.getElementById("quiz").style.display="block";
-}
-
-function answer(correct){
-    if(correct){
-        alert("Bonne réponse 🎉");
-    }else{
-        alert("Mauvaise réponse ❌");
-    }
-}
-
-function fakePay(){
-    alert("Paiement réussi ✅ (Simulation)");
-    backHome();
-}
-
-function backDashboard(){
-    hideAll();
-    document.getElementById("dashboard").style.display="block";
-}
-
-function backHome(){
-    hideAll();
-    document.getElementById("home").style.display="block";
-}
-
-function hideAll(){
-    document.getElementById("home").style.display="none";
-    document.getElementById("login").style.display="none";
-    document.getElementById("dashboard").style.display="none";
-    document.getElementById("quiz").style.display="none";
-    document.getElementById("payment").style.display="none";
-}
-</script>
+<footer>
+    © 2026 OSNS Academy - Tous droits réservés
+</footer>
 
 </body>
 </html>
