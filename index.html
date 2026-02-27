@@ -1,36 +1,157 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Cours C</title>
+<title>Langage C - OSNS Academy</title>
 <meta charset="UTF-8">
 <style>
-body{font-family:Arial;background:#0f172a;color:white;text-align:center;}
-section{padding:40px;}
-button{background:#38bdf8;border:none;padding:10px;border-radius:5px;}
+body{
+    font-family:Arial;
+    margin:0;
+    background:#0f172a;
+    color:white;
+    display:flex;
+}
+
+.sidebar{
+    width:250px;
+    background:#020617;
+    padding:20px;
+    height:100vh;
+}
+
+.sidebar h3{
+    text-align:center;
+}
+
+.chapter{
+    background:#1e293b;
+    padding:10px;
+    margin:10px 0;
+    cursor:pointer;
+    border-radius:5px;
+}
+
+.chapter:hover{
+    background:#38bdf8;
+    color:black;
+}
+
+.content{
+    flex:1;
+    padding:40px;
+}
+
+.progress-container{
+    background:#1e293b;
+    border-radius:10px;
+    overflow:hidden;
+    margin-bottom:20px;
+}
+
+.progress-bar{
+    height:15px;
+    width:0%;
+    background:#38bdf8;
+}
+
+button{
+    background:#38bdf8;
+    border:none;
+    padding:10px;
+    border-radius:5px;
+    cursor:pointer;
+}
 </style>
 </head>
 <body>
 
+<div class="sidebar">
+<h3>Chapitre</h3>
+
+<div class="chapter" onclick="loadChapter(1)">Chapitre 1 : Introduction</div>
+<div class="chapter" onclick="loadChapter(2)">Chapitre 2 : Variables</div>
+<div class="chapter" onclick="loadChapter(3)">Chapitre 3 : Conditions</div>
+<div class="chapter" onclick="loadChapter(4)">Chapitre 4 : Boucles</div>
+
+<br>
+<a href="index.html"><button>Retour</button></a>
+</div>
+
+<div class="content">
+
 <h1>Langage C</h1>
 
-<section>
-<h2>🎥 Introduction</h2>
-<iframe width="560" height="315"
-src="https://www.youtube.com/embed/KJgsSFOSQv0"
-frameborder="0" allowfullscreen>
-</iframe>
+<div class="progress-container">
+<div class="progress-bar" id="progressBar"></div>
+</div>
 
-<h2>📚 Leçon 1</h2>
-<p>Le langage C est un langage de programmation créé en 1972...</p>
+<div id="chapterContent">
+Clique sur un chapitre pour commencer.
+</div>
 
-<h2>🧠 Quiz</h2>
-<p>Qui a créé le langage C ?</p>
-<button onclick="alert('Bonne réponse !')">Dennis Ritchie</button>
-<button onclick="alert('Mauvaise réponse')">Bill Gates</button>
+</div>
 
-<br><br>
-<a href="index.html"><button>Retour</button></a>
-</section>
+<script>
+
+let completedChapters = JSON.parse(localStorage.getItem("cProgress")) || [];
+
+function loadChapter(num){
+
+    let content = document.getElementById("chapterContent");
+
+    if(num === 1){
+        content.innerHTML = `
+        <h2>Introduction</h2>
+        <p>Le langage C a été créé en 1972 par Dennis Ritchie...</p>
+        <button onclick="completeChapter(1)">Marquer comme terminé</button>
+        `;
+    }
+
+    if(num === 2){
+        content.innerHTML = `
+        <h2>Variables</h2>
+        <p>En C, une variable permet de stocker une valeur...</p>
+        <button onclick="completeChapter(2)">Marquer comme terminé</button>
+        `;
+    }
+
+    if(num === 3){
+        content.innerHTML = `
+        <h2>Conditions</h2>
+        <p>Les conditions permettent de prendre des décisions...</p>
+        <button onclick="completeChapter(3)">Marquer comme terminé</button>
+        `;
+    }
+
+    if(num === 4){
+        content.innerHTML = `
+        <h2>Boucles</h2>
+        <p>Les boucles permettent de répéter des instructions...</p>
+        <button onclick="completeChapter(4)">Marquer comme terminé</button>
+        `;
+    }
+}
+
+function completeChapter(num){
+
+    if(!completedChapters.includes(num)){
+        completedChapters.push(num);
+        localStorage.setItem("cProgress", JSON.stringify(completedChapters));
+    }
+
+    updateProgress();
+    alert("Chapitre terminé !");
+}
+
+function updateProgress(){
+
+    let percent = (completedChapters.length / 4) * 100;
+    document.getElementById("progressBar").style.width = percent + "%";
+}
+
+updateProgress();
+
+</script>
 
 </body>
 </html>
