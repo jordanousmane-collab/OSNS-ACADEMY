@@ -1,208 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>OSNS Academy - Dashboard</title>
+<title>Cours C</title>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <style>
-body{
-    margin:0;
-    font-family:Arial;
-    background:#0f172a;
-    color:white;
-}
-
-header{
-    background:#020617;
-    padding:20px;
-    text-align:center;
-}
-
-nav{
-    background:#1e293b;
-    padding:15px;
-    text-align:center;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin:20px;
-    font-weight:bold;
-}
-
-nav a:hover{
-    color:#38bdf8;
-}
-
-section{
-    padding:40px;
-    text-align:center;
-}
-
-.course{
-    background:#1e293b;
-    padding:20px;
-    margin:15px;
-    display:inline-block;
-    width:250px;
-    border-radius:12px;
-}
-
-button{
-    background:#38bdf8;
-    border:none;
-    padding:10px 15px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-button:hover{
-    background:white;
-}
-
-#dashboard{
-    display:none;
-}
-
-.card{
-    background:#1e293b;
-    padding:20px;
-    margin:15px auto;
-    width:300px;
-    border-radius:12px;
-}
-
-.progress-bar{
-    background:#334155;
-    border-radius:10px;
-    overflow:hidden;
-    margin-top:10px;
-}
-
-.progress{
-    height:15px;
-    background:#38bdf8;
-    width:0%;
-}
-
-footer{
-    background:#020617;
-    padding:20px;
-    text-align:center;
-}
+body{font-family:Arial;background:#0f172a;color:white;text-align:center;}
+section{padding:40px;}
+button{background:#38bdf8;border:none;padding:10px;border-radius:5px;}
 </style>
 </head>
-
 <body>
 
-<header>
-<h1>OSNS Academy</h1>
-<p>Plateforme professionnelle 🚀</p>
-</header>
+<h1>Langage C</h1>
 
-<nav>
-<a href="#" onclick="showHome()">Accueil</a>
-<a href="#" onclick="showDashboard()">Dashboard</a>
-<a href="#" onclick="logout()">Déconnexion</a>
-</nav>
+<section>
+<h2>🎥 Introduction</h2>
+<iframe width="560" height="315"
+src="https://www.youtube.com/embed/KJgsSFOSQv0"
+frameborder="0" allowfullscreen>
+</iframe>
 
-<!-- PAGE ACCUEIL -->
-<section id="home">
+<h2>📚 Leçon 1</h2>
+<p>Le langage C est un langage de programmation créé en 1972...</p>
 
-<h2>Nos Cours</h2>
+<h2>🧠 Quiz</h2>
+<p>Qui a créé le langage C ?</p>
+<button onclick="alert('Bonne réponse !')">Dennis Ritchie</button>
+<button onclick="alert('Mauvaise réponse')">Bill Gates</button>
 
-<div class="course">
-<h3>Langage C</h3>
-<button onclick="addCourse('Langage C')">Ajouter</button>
-</div>
-
-<div class="course">
-<h3>Algorithme</h3>
-<button onclick="addCourse('Algorithme')">Ajouter</button>
-</div>
-
-<div class="course">
-<h3>Développement Web</h3>
-<button onclick="addCourse('Développement Web')">Ajouter</button>
-</div>
-
+<br><br>
+<a href="index.html"><button>Retour</button></a>
 </section>
-
-<!-- DASHBOARD -->
-<section id="dashboard">
-
-<h2>🎓 Tableau de Bord Étudiant</h2>
-
-<div class="card">
-<h3 id="studentName">Bienvenue</h3>
-<p>Cours inscrits : <span id="courseCount">0</span></p>
-</div>
-
-<div id="myCourses"></div>
-
-</section>
-
-<footer>
-© 2026 OSNS Academy - Tous droits réservés
-</footer>
-
-<script>
-
-// Simulation utilisateur
-let currentUser = "Ousmane";
-document.getElementById("studentName").innerText="Bienvenue " + currentUser;
-
-let myCourses = JSON.parse(localStorage.getItem("myCourses")) || [];
-
-function addCourse(course){
-    if(!myCourses.includes(course)){
-        myCourses.push(course);
-        localStorage.setItem("myCourses", JSON.stringify(myCourses));
-        alert("Cours ajouté !");
-    }
-    updateDashboard();
-}
-
-function updateDashboard(){
-    document.getElementById("courseCount").innerText=myCourses.length;
-    let container=document.getElementById("myCourses");
-    container.innerHTML="";
-    myCourses.forEach(course=>{
-        let progress=Math.floor(Math.random()*100);
-        container.innerHTML+=`
-        <div class="card">
-            <h3>${course}</h3>
-            <p>Progression</p>
-            <div class="progress-bar">
-                <div class="progress" style="width:${progress}%"></div>
-            </div>
-            <p>${progress}% complété</p>
-        </div>
-        `;
-    });
-}
-
-function showDashboard(){
-    document.getElementById("home").style.display="none";
-    document.getElementById("dashboard").style.display="block";
-    updateDashboard();
-}
-
-function showHome(){
-    document.getElementById("home").style.display="block";
-    document.getElementById("dashboard").style.display="none";
-}
-
-function logout(){
-    alert("Déconnexion réussie");
-}
-
-updateDashboard();
-
-</script>
 
 </body>
 </html>
